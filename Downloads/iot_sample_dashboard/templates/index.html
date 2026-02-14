@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP32 IoT Dashboard | Live Temperature</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Smart Home Hub</h1>
+        <p>Live Environment Monitoring</p>
+    </header>
+
+    <div class="dashboard">
+        <!-- Temperature Card -->
+        <div class="card">
+            <h2 class="card-title">Temperature</h2>
+            <div class="card-value">
+                <span id="temp-value">--.-</span>
+                <span class="unit">°C</span>
+            </div>
+            <div class="status-indicator">
+                <div class="dot"></div>
+                <span>Live Feed</span>
+            </div>
+        </div>
+
+        <!-- Humidity Card -->
+        <div class="card">
+            <h2 class="card-title">Humidity</h2>
+            <div class="card-value">
+                <span id="hum-value">--.-</span>
+                <span class="unit">%</span>
+            </div>
+            <div class="status-indicator">
+                <div class="dot"></div>
+                <span>Live Feed</span>
+            </div>
+        </div>
+
+        <!-- Chart Card -->
+        <div class="card chart-container">
+            <h2 class="card-title">Temperature History</h2>
+            <canvas id="tempChart"></canvas>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
